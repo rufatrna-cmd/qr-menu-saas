@@ -1,0 +1,38 @@
+{
+  "mangal": {
+    "name": "Mangal Kafe Aktau",
+    "botToken": "8928438895:AAGczTX4fZCBC4mskfTlb7OXzh3bH-e6EXQ",
+    "chatId": "7580459275",
+    "adBanner": {
+      "active": true,
+      "text": {
+        "az": "📢 Burada sizin reklamınız ola bilər!",
+        "ru": "📢 Здесь может быть ваша реклама!",
+        "kk": "📢 Мұнда сіздің жарнаmanız болуы мүмкін!",
+        "en": "📢 Your ad could be here!"
+      },
+      "link": "https://wa.me/77711584645",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600"
+    },
+    "menu": [
+      { 
+        "id": 1, 
+        "category": "Kebablar",
+        "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500",
+        "name": { "az": "Lülə Kebab", "ru": "Люля Кебаб", "kk": "Люля Кебаб", "en": "Lula Kebab" }, 
+        "description": { "az": "Xüsusi ədviyyatlarla hazırlanmış quzu əti kebabı", "ru": "Кебаб из баранины со специями", "kk": "Дәмдеуіштер қосылған қой етінен жасалған кебаб", "en": "Lamb kebab prepared with special spices" },
+        "price": 2200,
+        "available": true
+      },
+      { 
+        "id": 2, 
+        "category": "Şorbalar",
+        "image": "https://images.unsplash.com/photo-1547592180-85f173990554?w=500",
+        "name": { "az": "Mərci Şorbası", "ru": "Чечевичный суп", "kk": "Мәрсі сорпасы", "en": "Lentil Soup" }, 
+        "description": { "az": "Ənənəvi qırmızı mərci şorbası, limon və kruton ilə", "ru": "Традиционный чечевичный суп с лимоном", "kk": "Дәстүрлі қызыл мәрсі сорпасы", "en": "Traditional red lentil soup with lemon" },
+        "price": 900,
+        "available": true
+      }
+    ]
+  }
+}
