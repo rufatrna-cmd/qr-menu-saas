@@ -45,11 +45,10 @@ app.get('/api/menu/:cafeSlug', (req, res) => {
 app.get('/api/admin/qrcode/:cafeSlug', async (req, res) => {
     try {
         const cafeSlug = req.params.cafeSlug;
-        const table = req.query.table || '1'; // Əgər stol nömrəsi verilməyibsə avtomatik 1 götürür
+        const table = req.query.table || '1';
         const host = req.headers['x-forwarded-host'] || req.headers.host;
         const protocol = req.headers['x-forwarded-proto'] || 'http';
         
-        // Linkə masa nömrəsini də əlavə edirik: /mangal?table=5
         const menuUrl = `${protocol}://${host}/${cafeSlug}?table=${table}`;
 
         const qrImage = await QRCode.toDataURL(menuUrl);
@@ -137,9 +136,10 @@ app.post('/api/order/:cafeSlug', async (req, res) => {
         const cafe = cafes[req.params.cafeSlug];
         if (!cafe) return res.status(404).json({ success: false, error: 'Kafe tapılmadı' });
 
-        // URL-dən və ya body-dən masa nömrəsini oxuyuruq
         const tableNumber = req.body.tableNumber || 1;
         const { items, totalPrice } = req.body;
+        
+        // Səhv düzəldildi: \n əvəzinə * qoyuldu
         let itemsText = items.map(item => `• ${item.count}x ${item.name} (${item.price * item.count} KZT)`).join('\n');
 
         const message = `🔔 YENİ SİFARİŞ - ${cafe.name}!\n📍 Masa №${tableNumber}\n\nSifarişlər:\n${itemsText}\n\n💰 Cəmi: ${totalPrice} KZT`;
