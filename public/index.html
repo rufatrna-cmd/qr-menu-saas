@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -296,6 +297,10 @@
         const t = translations[currentLang];
         if (items.length === 0) { alert(t.emptyAlert); return; }
 
+        // Sifariş düyməsinə basılan anda URL-dən masa nömrəsini birbaşa oxuyuruq
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentTable = urlParams.get('table') || urlParams.get('m') || urlParams.get('stol') || '1';
+
         const formattedItems = items.map(i => ({ ...i, name: getLocalizedText(i.name) }));
         const totalPrice = items.reduce((sum, i) => sum + (i.price * i.count), 0);
 
@@ -303,7 +308,7 @@
             const res = await fetch(`/api/order/${cafeSlug}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ tableNumber: 1, items: formattedItems, totalPrice })
+                body: JSON.stringify({ tableNumber: currentTable, items: formattedItems, totalPrice })
             });
             const result = await res.json();
             if (result.success) {
